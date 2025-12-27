@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,7 +88,7 @@
                 <div class="w-16 h-16 border-4 border-slate-200 rounded-full"></div>
                 <div class="absolute top-0 w-16 h-16 border-4 border-brand-primary rounded-full border-t-transparent animate-spin"></div>
             </div>
-            <p class="mt-4 text-brand-primary font-bold tracking-widest text-xs uppercase">Loading Logistics Profile...</p>
+            <p class="mt-4 text-brand-primary font-bold tracking-widest text-xs uppercase" data-i18n="loading">Loading Logistics Profile...</p>
         </div>
     </div>
 
@@ -135,18 +135,18 @@
                                 </div>
 
                                 <div>
-                                    <h4 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-2 border-b border-slate-100 pb-2">Tantangan (Challenge)</h4>
+                                    <h4 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-2 border-b border-slate-100 pb-2" data-i18n="modal_challenge">Challenge</h4>
                                     <p id="modal-challenge" class="text-slate-600 leading-relaxed text-sm">Description of the challenge goes here.</p>
                                 </div>
 
                                 <div>
-                                    <h4 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-2 border-b border-slate-100 pb-2">Solusi & Implementasi</h4>
+                                    <h4 class="text-sm font-bold text-brand-primary uppercase tracking-wider mb-2 border-b border-slate-100 pb-2" data-i18n="modal_solution">Solution & Implementation</h4>
                                     <p id="modal-solution" class="text-slate-600 leading-relaxed text-sm">Description of the solution goes here.</p>
                                 </div>
 
                                 <div class="bg-blue-50 p-5 rounded-xl border border-blue-100">
                                     <h4 class="text-sm font-bold text-brand-accent uppercase tracking-wider mb-3 flex items-center gap-2">
-                                        <i class="fas fa-chart-line"></i> Hasil & Dampak (Impact)
+                                        <i class="fas fa-chart-line"></i> <span data-i18n="modal_results">Impact & Results</span>
                                     </h4>
                                     <ul id="modal-results" class="space-y-2">
                                         <!-- List items injected via JS -->
@@ -155,7 +155,7 @@
 
                                 <div class="pt-4 flex gap-4">
                                     <a id="modal-link" href="#" target="_blank" class="flex-1 text-center px-6 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-dark transition-colors shadow-lg">
-                                        <i class="fas fa-external-link-alt mr-2"></i> Lihat Live / Demo
+                                        <i class="fas fa-external-link-alt mr-2"></i> <span data-i18n="modal_btn">View Live / Demo</span>
                                     </a>
                                 </div>
                             </div>
@@ -184,14 +184,28 @@
                     </div>
                     
                     <!-- Desktop Menu -->
-                    <div class="hidden md:flex space-x-8">
-                        <a href="#home" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors">Beranda</a>
-                        <a href="#analytics" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors">Analitik</a>
-                        <a href="#system-demo" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors">Demo Sistem</a>
-                        <a href="#video-showcase" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors">Video</a>
-                        <a href="#projects" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors">Proyek</a>
-                        <a href="#contact" class="px-6 py-2.5 text-sm font-bold text-white bg-brand-primary rounded-lg hover:bg-brand-dark transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                            <i class="fas fa-paper-plane"></i> Hire Me
+                    <div class="hidden md:flex space-x-6 items-center">
+                        <a href="#home" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors" data-i18n="nav_home">Home</a>
+                        <a href="#analytics" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors" data-i18n="nav_analytics">Analytics</a>
+                        <a href="#system-demo" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors" data-i18n="nav_demo">System Demo</a>
+                        <a href="#video-showcase" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors" data-i18n="nav_video">Video</a>
+                        <a href="#projects" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition-colors" data-i18n="nav_projects">Projects</a>
+                        
+                        <!-- Language Switcher -->
+                        <div class="relative group ml-4">
+                            <button id="lang-btn" class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition-colors">
+                                <i class="fas fa-globe"></i> <span id="current-lang">EN</span> <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border border-slate-100 overflow-hidden hidden group-hover:block">
+                                <button onclick="changeLanguage('en')" class="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-primary">English</button>
+                                <button onclick="changeLanguage('id')" class="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-primary">Indonesia</button>
+                                <button onclick="changeLanguage('zh')" class="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-primary">中文 (Chinese)</button>
+                                <button onclick="changeLanguage('ko')" class="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-primary">한국어 (Korean)</button>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="px-5 py-2 text-sm font-bold text-white bg-brand-primary rounded-lg hover:bg-brand-dark transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                            <i class="fas fa-paper-plane"></i> <span data-i18n="nav_hire">Hire Me</span>
                         </a>
                     </div>
                     
@@ -204,11 +218,17 @@
             <!-- Mobile Menu Dropdown -->
             <div id="mobile-menu" class="hidden md:hidden bg-white border-b absolute w-full left-0 shadow-lg">
                 <div class="px-4 py-4 space-y-3">
-                    <a href="#home" class="block text-slate-600 font-medium">Beranda</a>
-                    <a href="#analytics" class="block text-slate-600 font-medium">Analitik</a>
-                    <a href="#system-demo" class="block text-slate-600 font-medium">Demo Sistem</a>
-                    <a href="#projects" class="block text-slate-600 font-medium">Proyek</a>
-                    <a href="#contact" class="block text-brand-primary font-bold">Kontak</a>
+                    <a href="#home" class="block text-slate-600 font-medium" data-i18n="nav_home">Home</a>
+                    <a href="#analytics" class="block text-slate-600 font-medium" data-i18n="nav_analytics">Analytics</a>
+                    <a href="#system-demo" class="block text-slate-600 font-medium" data-i18n="nav_demo">System Demo</a>
+                    <a href="#projects" class="block text-slate-600 font-medium" data-i18n="nav_projects">Projects</a>
+                    <div class="flex gap-2 py-2 border-t border-slate-100">
+                        <button onclick="changeLanguage('en')" class="px-3 py-1 bg-slate-100 rounded text-xs">EN</button>
+                        <button onclick="changeLanguage('id')" class="px-3 py-1 bg-slate-100 rounded text-xs">ID</button>
+                        <button onclick="changeLanguage('zh')" class="px-3 py-1 bg-slate-100 rounded text-xs">ZH</button>
+                        <button onclick="changeLanguage('ko')" class="px-3 py-1 bg-slate-100 rounded text-xs">KO</button>
+                    </div>
+                    <a href="#contact" class="block text-brand-primary font-bold" data-i18n="nav_hire">Hire Me</a>
                 </div>
             </div>
         </nav>
@@ -223,22 +243,22 @@
                 <div class="text-left animate-slide-up relative z-10">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold tracking-wider text-brand-primary uppercase bg-white border border-slate-200 rounded-full shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span>
-                        Ready for Senior Management Role
+                        <span data-i18n="hero_badge">Ready for Senior Management Role</span>
                     </div>
                     <h1 class="text-5xl lg:text-7xl font-bold text-brand-dark mb-6 leading-tight">
-                        Strategic <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">Logistics & Supply Chain</span>
-                        <br>Optimization
+                        <span data-i18n="hero_title_1">Strategic</span> <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent" data-i18n="hero_title_2">Logistics & Supply Chain</span>
+                        <br><span data-i18n="hero_title_3">Optimization</span>
                     </h1>
-                    <p class="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed">
-                        Mengintegrasikan 14+ tahun keahlian manajemen gudang fisik dengan strategi efisiensi biaya dan teknologi ERP untuk rantai pasok yang tangguh.
+                    <p class="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed" data-i18n="hero_desc">
+                        Integrating 14+ years of physical warehouse management expertise with cost efficiency strategies and ERP technology for a resilient supply chain.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#system-demo" class="px-8 py-4 bg-brand-primary text-white font-bold rounded-lg shadow-xl shadow-brand-primary/20 hover:shadow-2xl hover:bg-brand-dark transition-all transform hover:-translate-y-1 flex items-center gap-2">
-                            <i class="fas fa-laptop-code"></i> Coba Demo Sistem
+                            <i class="fas fa-laptop-code"></i> <span data-i18n="btn_demo">Try System Demo</span>
                         </a>
                         <a href="#projects" class="px-8 py-4 bg-white text-brand-primary border border-slate-300 font-bold rounded-lg hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fas fa-network-wired"></i> Portfolio Proyek
+                            <i class="fas fa-network-wired"></i> <span data-i18n="btn_portfolio">View Projects</span>
                         </a>
                     </div>
                     
@@ -246,15 +266,15 @@
                     <div class="mt-12 grid grid-cols-3 gap-6 border-t border-slate-300 pt-8">
                         <div>
                             <div class="text-3xl font-bold text-brand-dark">14+</div>
-                            <div class="text-sm text-slate-500 font-bold uppercase tracking-wide">Tahun Pengalaman</div>
+                            <div class="text-sm text-slate-500 font-bold uppercase tracking-wide" data-i18n="stat_exp">Years Experience</div>
                         </div>
                         <div>
                             <div class="text-3xl font-bold text-brand-dark">IDR 200Jt</div>
-                            <div class="text-sm text-slate-500 font-bold uppercase tracking-wide">Annual Saving</div>
+                            <div class="text-sm text-slate-500 font-bold uppercase tracking-wide" data-i18n="stat_saving">Annual Saving</div>
                         </div>
                         <div>
                             <div class="text-3xl font-bold text-brand-dark">25+</div>
-                            <div class="text-sm text-slate-500 font-bold uppercase tracking-wide">Tim Dipimpin</div>
+                            <div class="text-sm text-slate-500 font-bold uppercase tracking-wide" data-i18n="stat_team">Team Led</div>
                         </div>
                     </div>
                 </div>
@@ -283,7 +303,7 @@
                                 <i class="fas fa-warehouse"></i>
                             </div>
                             <div>
-                                <div class="text-[10px] text-slate-500 font-bold uppercase">Warehouse Efficiency</div>
+                                <div class="text-[10px] text-slate-500 font-bold uppercase" data-i18n="badge_warehouse">Warehouse Efficiency</div>
                                 <div class="font-bold text-brand-dark text-lg">Optimal</div>
                             </div>
                         </div>
@@ -297,9 +317,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
                     <div>
-                        <span class="text-brand-accent font-bold tracking-widest text-xs uppercase bg-blue-50 px-3 py-1 rounded-full">Performance Metrics</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-4">Analitik Pencapaian</h2>
-                        <p class="text-slate-600 mt-3 max-w-2xl">Visualisasi dampak efisiensi biaya dan optimasi operasional dari berbagai proyek strategis.</p>
+                        <span class="text-brand-accent font-bold tracking-widest text-xs uppercase bg-blue-50 px-3 py-1 rounded-full" data-i18n="section_analytics_badge">Performance Metrics</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-4" data-i18n="section_analytics_title">Performance Analytics</h2>
+                        <p class="text-slate-600 mt-3 max-w-2xl" data-i18n="section_analytics_desc">Visualizing cost efficiency impact and operational optimization from various strategic projects.</p>
                     </div>
                 </div>
 
@@ -311,18 +331,18 @@
                             <div class="flex items-center justify-between mb-8">
                                 <div>
                                     <h3 class="text-lg font-bold text-brand-dark flex items-center gap-2">
-                                        <i class="fas fa-chart-line text-brand-accent"></i> Cost Savings (IDR)
+                                        <i class="fas fa-chart-line text-brand-accent"></i> <span data-i18n="chart_savings_title">Cost Savings (IDR)</span>
                                     </h3>
                                 </div>
                                 <div class="px-3 py-1 bg-green-100 text-green-700 rounded-md text-xs font-bold border border-green-200">
-                                    Total Impact: ~700 Juta
+                                    <span data-i18n="chart_savings_badge">Total Impact: ~700 Million</span>
                                 </div>
                             </div>
                             <div class="h-72">
                                 <canvas id="savingChart"></canvas>
                             </div>
-                            <p class="text-xs text-slate-400 mt-6 text-center italic border-t border-slate-100 pt-3">
-                                *Data kumulatif dari inisiatif pengurangan stok usang, sistem tracking, dan optimasi rute.
+                            <p class="text-xs text-slate-400 mt-6 text-center italic border-t border-slate-100 pt-3" data-i18n="chart_savings_note">
+                                *Cumulative data from obsolete stock reduction, tracking systems, and route optimization initiatives.
                             </p>
                         </div>
                     </div>
@@ -334,7 +354,7 @@
                         
                         <div class="relative z-10 w-full">
                             <h3 class="text-lg font-bold mb-6 text-center flex items-center justify-center gap-2">
-                                <i class="fas fa-radar text-brand-highlight"></i> Kompetensi Inti
+                                <i class="fas fa-radar text-brand-highlight"></i> <span data-i18n="chart_skills_title">Core Competencies</span>
                             </h3>
                             <div class="h-72 flex items-center justify-center">
                                 <canvas id="skillChart"></canvas>
@@ -351,7 +371,7 @@
                             <i class="fas fa-truck text-brand-accent text-xl"></i>
                         </div>
                         <div class="text-3xl font-bold text-brand-dark mb-1">15%</div>
-                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Transport Cost Cut</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider" data-i18n="kpi_1">Transport Cost Cut</div>
                     </div>
                     <!-- KPI 2 -->
                     <div class="group p-6 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-white hover:border-brand-accent hover:shadow-lg transition-all duration-300">
@@ -359,7 +379,7 @@
                             <i class="fas fa-boxes-stacked text-brand-accent text-xl"></i>
                         </div>
                         <div class="text-3xl font-bold text-brand-dark mb-1">30%</div>
-                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Storage Capacity Inc.</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider" data-i18n="kpi_2">Storage Capacity Inc.</div>
                     </div>
                     <!-- KPI 3 -->
                     <div class="group p-6 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-white hover:border-brand-accent hover:shadow-lg transition-all duration-300">
@@ -367,7 +387,7 @@
                             <i class="fas fa-stopwatch text-brand-accent text-xl"></i>
                         </div>
                         <div class="text-3xl font-bold text-brand-dark mb-1">25%</div>
-                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Handling Time Reduced</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider" data-i18n="kpi_3">Handling Time Reduced</div>
                     </div>
                     <!-- KPI 4 -->
                     <div class="group p-6 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-white hover:border-brand-accent hover:shadow-lg transition-all duration-300">
@@ -375,7 +395,7 @@
                             <i class="fas fa-shield-alt text-brand-accent text-xl"></i>
                         </div>
                         <div class="text-3xl font-bold text-brand-dark mb-1">40%</div>
-                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Inventory Loss Reduced</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider" data-i18n="kpi_4">Inventory Loss Reduced</div>
                     </div>
                 </div>
             </div>
@@ -389,9 +409,9 @@
                         <i class="fas fa-laptop-code"></i>
                         <span>Digital Innovation</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2">Live Demo: Sistem Inventory MySCM</h2>
-                    <p class="text-slate-600 mt-4 max-w-3xl mx-auto">
-                        Inisiatif mandiri dalam mengembangkan solusi digital untuk menjawab tantangan administrasi gudang. Sistem ini mengotomatisasi pencatatan, mengurangi beban kerja manual hingga 50%, dan memberikan visibilitas stok real-time.
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2" data-i18n="section_demo_title">Live Demo: MySCM Inventory System</h2>
+                    <p class="text-slate-600 mt-4 max-w-3xl mx-auto" data-i18n="section_demo_desc">
+                        Independent initiative to develop digital solutions for warehouse administration challenges. This system automates recording, reduces manual workload by 50%, and provides real-time stock visibility.
                     </p>
                 </div>
 
@@ -426,10 +446,10 @@
 
                 <div class="mt-8 text-center flex justify-center gap-4 flex-wrap">
                     <a href="https://myscm-app.github.io/mainscm/" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        <i class="fas fa-external-link-alt"></i> Buka Layar Penuh
+                        <i class="fas fa-external-link-alt"></i> <span data-i18n="btn_open_fullscreen">Open Fullscreen</span>
                     </a>
                     <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-brand-primary border border-slate-300 font-bold rounded-lg hover:bg-slate-50 transition-all shadow-sm">
-                        <i class="fas fa-comment-dots"></i> Diskusi Tentang Sistem Ini
+                        <i class="fas fa-comment-dots"></i> <span data-i18n="btn_discuss_system">Discuss This System</span>
                     </a>
                 </div>
             </div>
@@ -443,11 +463,11 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold tracking-wider text-brand-primary uppercase bg-white border border-brand-primary/10 rounded-full shadow-sm">
                     <i class="fas fa-play-circle text-brand-highlight"></i>
-                    <span>Bukti Visual</span>
+                    <span data-i18n="section_video_badge">Visual Proof</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Video Pencapaian</h2>
-                <p class="text-slate-600 mb-10 max-w-2xl mx-auto">
-                    Dokumentasi visual implementasi sistem, transformasi operasional, dan ringkasan pencapaian yang telah saya pimpin.
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4" data-i18n="section_video_title">Achievement Video</h2>
+                <p class="text-slate-600 mb-10 max-w-2xl mx-auto" data-i18n="section_video_desc">
+                    Visual documentation of system implementation, operational transformation, and summary of achievements I have led.
                 </p>
                 
                 <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-brand-dark border-4 border-white ring-1 ring-slate-200 group" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
@@ -459,7 +479,7 @@
                     </iframe>
                 </div>
                 <p class="text-slate-500 mt-6 text-sm italic">
-                    <i class="fas fa-info-circle mr-1"></i> Video ini menampilkan ringkasan pencapaian dan proses implementasi di lapangan.
+                    <i class="fas fa-info-circle mr-1"></i> <span data-i18n="section_video_note">This video shows the achievement summary and field implementation process.</span>
                 </p>
             </div>
         </section>
@@ -469,9 +489,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                     <div>
-                        <span class="text-brand-accent font-bold tracking-widest text-xs uppercase">Portfolio & Initiatives</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2">Strategic Projects</h2>
-                        <p class="text-slate-600 mt-4 max-w-xl">Implementasi solusi logistik fisik dan digital untuk efisiensi operasional. Klik proyek untuk melihat detail lengkap.</p>
+                        <span class="text-brand-accent font-bold tracking-widest text-xs uppercase" data-i18n="section_projects_badge">Portfolio & Initiatives</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2" data-i18n="section_projects_title">Strategic Projects</h2>
+                        <p class="text-slate-600 mt-4 max-w-xl" data-i18n="section_projects_desc">Implementation of physical logistics and digital solutions for operational efficiency. Click on a project to see full details.</p>
                     </div>
                 </div>
                 
@@ -491,9 +511,9 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 p-12 relative z-10 items-center">
                         <div class="text-white">
-                            <h2 class="text-3xl font-bold mb-4">Siap Mengoptimalkan Supply Chain Anda?</h2>
-                            <p class="text-slate-300 mb-8 leading-relaxed">
-                                Dengan pengalaman 14 tahun, saya siap memimpin transformasi logistik perusahaan Anda menuju efisiensi maksimal dan pengurangan biaya yang terukur.
+                            <h2 class="text-3xl font-bold mb-4" data-i18n="contact_title">Ready to Optimize Your Supply Chain?</h2>
+                            <p class="text-slate-300 mb-8 leading-relaxed" data-i18n="contact_desc">
+                                With 14 years of experience, I am ready to lead your company's logistics transformation towards maximum efficiency and measurable cost reduction.
                             </p>
                             <div class="space-y-5">
                                 <div class="flex items-center gap-4 group cursor-pointer">
@@ -501,7 +521,7 @@
                                         <i class="fas fa-phone text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="text-xs text-slate-400 uppercase font-bold">Telepon / WhatsApp</div>
+                                        <div class="text-xs text-slate-400 uppercase font-bold" data-i18n="contact_phone_label">Phone / WhatsApp</div>
                                         <span id="contact-phone" class="font-medium text-lg">+62 857 1705 0604</span>
                                     </div>
                                 </div>
@@ -521,19 +541,19 @@
                             <form onsubmit="event.preventDefault(); window.open('https://wa.me/6285717050604?text=Halo%20Pak%20Abi,%20saya%20tertarik%20mendiskusikan%20posisi%20Managerial%20di%20perusahaan%20kami.', '_blank');">
                                 <div class="flex items-center gap-2 mb-6 text-brand-dark">
                                     <i class="fab fa-whatsapp text-2xl text-green-500"></i>
-                                    <h3 class="text-lg font-bold">Hubungi Cepat</h3>
+                                    <h3 class="text-lg font-bold" data-i18n="form_title">Quick Contact</h3>
                                 </div>
                                 <div class="space-y-4">
                                     <div>
-                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nama / Perusahaan</label>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1" data-i18n="form_name">Name / Company</label>
                                         <input type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none transition" placeholder="PT Logistik Indonesia">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Pesan</label>
-                                        <textarea rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none transition" placeholder="Kami ingin mendiskusikan peluang..."></textarea>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1" data-i18n="form_message">Message</label>
+                                        <textarea rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none transition" placeholder="We want to discuss opportunities..."></textarea>
                                     </div>
                                     <button class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-dark transition-colors shadow-lg hover:shadow-xl flex justify-center items-center gap-2">
-                                        <span>Kirim Pesan WhatsApp</span>
+                                        <span data-i18n="form_btn">Send WhatsApp Message</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
@@ -551,7 +571,7 @@
                     <i class="fas fa-dolly-flatbed"></i>
                 </div>
                 <p class="text-slate-500 text-sm font-medium">
-                    &copy; <span id="year"></span> Abi Habudin. Supply Chain & Logistics Professional.
+                    &copy; <span id="year"></span> Abi Habudin. <span data-i18n="footer_text">Supply Chain & Logistics Professional.</span>
                 </p>
             </div>
         </footer>
@@ -559,85 +579,533 @@
 
     <!-- Logic Script -->
     <script>
+        // Translations Data
+        const translations = {
+            en: {
+                loading: "Loading Logistics Profile...",
+                nav_home: "Home",
+                nav_analytics: "Analytics",
+                nav_demo: "System Demo",
+                nav_video: "Video",
+                nav_projects: "Projects",
+                nav_hire: "Hire Me",
+                hero_badge: "Ready for Senior Management Role",
+                hero_title_1: "Strategic",
+                hero_title_2: "Logistics & Supply Chain",
+                hero_title_3: "Optimization",
+                hero_desc: "Integrating 14+ years of physical warehouse management expertise with cost efficiency strategies and ERP technology for a resilient supply chain.",
+                btn_demo: "Try System Demo",
+                btn_portfolio: "View Projects",
+                stat_exp: "Years Experience",
+                stat_saving: "Annual Saving",
+                stat_team: "Team Led",
+                badge_warehouse: "Warehouse Efficiency",
+                section_analytics_badge: "Performance Metrics",
+                section_analytics_title: "Performance Analytics",
+                section_analytics_desc: "Visualizing cost efficiency impact and operational optimization from various strategic projects.",
+                chart_savings_title: "Cost Savings (IDR)",
+                chart_savings_badge: "Total Impact: ~700 Million",
+                chart_savings_note: "*Cumulative data from obsolete stock reduction, tracking systems, and route optimization initiatives.",
+                chart_skills_title: "Core Competencies",
+                kpi_1: "Transport Cost Cut",
+                kpi_2: "Storage Capacity Inc.",
+                kpi_3: "Handling Time Reduced",
+                kpi_4: "Inventory Loss Reduced",
+                section_demo_title: "Live Demo: MySCM Inventory System",
+                section_demo_desc: "Independent initiative to develop digital solutions for warehouse administration challenges. This system automates recording, reduces manual workload by 50%, and provides real-time stock visibility.",
+                btn_open_fullscreen: "Open Fullscreen",
+                btn_discuss_system: "Discuss This System",
+                section_video_badge: "Visual Proof",
+                section_video_title: "Achievement Video",
+                section_video_desc: "Visual documentation of system implementation, operational transformation, and summary of achievements I have led.",
+                section_video_note: "This video shows the achievement summary and field implementation process.",
+                section_projects_badge: "Portfolio & Initiatives",
+                section_projects_title: "Strategic Projects",
+                section_projects_desc: "Implementation of physical logistics and digital solutions for operational efficiency. Click on a project to see full details.",
+                contact_title: "Ready to Optimize Your Supply Chain?",
+                contact_desc: "With 14 years of experience, I am ready to lead your company's logistics transformation towards maximum efficiency and measurable cost reduction.",
+                contact_phone_label: "Phone / WhatsApp",
+                form_title: "Quick Contact",
+                form_name: "Name / Company",
+                form_message: "Message",
+                form_btn: "Send WhatsApp Message",
+                footer_text: "Supply Chain & Logistics Professional.",
+                modal_challenge: "Challenge",
+                modal_solution: "Solution & Implementation",
+                modal_results: "Impact & Results",
+                modal_btn: "View Live / Demo"
+            },
+            id: {
+                loading: "Memuat Profil Logistik...",
+                nav_home: "Beranda",
+                nav_analytics: "Analitik",
+                nav_demo: "Demo Sistem",
+                nav_video: "Video",
+                nav_projects: "Proyek",
+                nav_hire: "Rekrut Saya",
+                hero_badge: "Siap untuk Peran Manajemen Senior",
+                hero_title_1: "Strategis",
+                hero_title_2: "Logistik & Rantai Pasok",
+                hero_title_3: "Optimasi",
+                hero_desc: "Mengintegrasikan 14+ tahun keahlian manajemen gudang fisik dengan strategi efisiensi biaya dan teknologi ERP untuk rantai pasok yang tangguh.",
+                btn_demo: "Coba Demo Sistem",
+                btn_portfolio: "Lihat Proyek",
+                stat_exp: "Tahun Pengalaman",
+                stat_saving: "Penghematan Tahunan",
+                stat_team: "Tim Dipimpin",
+                badge_warehouse: "Efisiensi Gudang",
+                section_analytics_badge: "Metrik Kinerja",
+                section_analytics_title: "Analitik Pencapaian",
+                section_analytics_desc: "Visualisasi dampak efisiensi biaya dan optimasi operasional dari berbagai proyek strategis.",
+                chart_savings_title: "Penghematan Biaya (IDR)",
+                chart_savings_badge: "Total Dampak: ~700 Juta",
+                chart_savings_note: "*Data kumulatif dari inisiatif pengurangan stok usang, sistem tracking, dan optimasi rute.",
+                chart_skills_title: "Kompetensi Inti",
+                kpi_1: "Potongan Biaya Transport",
+                kpi_2: "Kapasitas Gudang Naik",
+                kpi_3: "Waktu Handling Berkurang",
+                kpi_4: "Kehilangan Stok Berkurang",
+                section_demo_title: "Demo Langsung: Sistem Inventori MySCM",
+                section_demo_desc: "Inisiatif mandiri dalam mengembangkan solusi digital untuk menjawab tantangan administrasi gudang. Sistem ini mengotomatisasi pencatatan, mengurangi beban kerja manual hingga 50%, dan memberikan visibilitas stok real-time.",
+                btn_open_fullscreen: "Buka Layar Penuh",
+                btn_discuss_system: "Diskusi Sistem Ini",
+                section_video_badge: "Bukti Visual",
+                section_video_title: "Video Pencapaian",
+                section_video_desc: "Dokumentasi visual implementasi sistem, transformasi operasional, dan ringkasan pencapaian yang telah saya pimpin.",
+                section_video_note: "Video ini menampilkan ringkasan pencapaian dan proses implementasi di lapangan.",
+                section_projects_badge: "Portofolio & Inisiatif",
+                section_projects_title: "Proyek Strategis",
+                section_projects_desc: "Implementasi solusi logistik fisik dan digital untuk efisiensi operasional. Klik proyek untuk melihat detail lengkap.",
+                contact_title: "Siap Mengoptimalkan Supply Chain Anda?",
+                contact_desc: "Dengan pengalaman 14 tahun, saya siap memimpin transformasi logistik perusahaan Anda menuju efisiensi maksimal dan pengurangan biaya yang terukur.",
+                contact_phone_label: "Telepon / WhatsApp",
+                form_title: "Hubungi Cepat",
+                form_name: "Nama / Perusahaan",
+                form_message: "Pesan",
+                form_btn: "Kirim Pesan WhatsApp",
+                footer_text: "Profesional Rantai Pasok & Logistik.",
+                modal_challenge: "Tantangan",
+                modal_solution: "Solusi & Implementasi",
+                modal_results: "Hasil & Dampak",
+                modal_btn: "Lihat Langsung / Demo"
+            },
+            zh: {
+                loading: "加载物流资料...",
+                nav_home: "首页",
+                nav_analytics: "分析",
+                nav_demo: "系统演示",
+                nav_video: "视频",
+                nav_projects: "项目",
+                nav_hire: "雇佣我",
+                hero_badge: "准备好担任高级管理职务",
+                hero_title_1: "战略性",
+                hero_title_2: "物流与供应链",
+                hero_title_3: "优化",
+                hero_desc: "结合14年以上的实体仓库管理专业知识，成本效率策略和ERP技术，打造有弹性的供应链。",
+                btn_demo: "试用系统演示",
+                btn_portfolio: "查看项目",
+                stat_exp: "年经验",
+                stat_saving: "年度节省",
+                stat_team: "领导团队",
+                badge_warehouse: "仓库效率",
+                section_analytics_badge: "绩效指标",
+                section_analytics_title: "绩效分析",
+                section_analytics_desc: "可视化各种战略项目的成本效率影响和运营优化。",
+                chart_savings_title: "成本节约 (印尼盾)",
+                chart_savings_badge: "总影响: ~7亿",
+                chart_savings_note: "*来自过时库存减少，跟踪系统和路线优化计划的累积数据。",
+                chart_skills_title: "核心竞争力",
+                kpi_1: "运输成本降低",
+                kpi_2: "存储容量增加",
+                kpi_3: "处理时间减少",
+                kpi_4: "库存损失减少",
+                section_demo_title: "现场演示: MySCM 库存系统",
+                section_demo_desc: "自主开发的数字解决方案，旨在解决仓库管理挑战。该系统自动记录，减少50%的手工工作量，并提供实时库存可见性。",
+                btn_open_fullscreen: "全屏打开",
+                btn_discuss_system: "讨论此系统",
+                section_video_badge: "视觉证明",
+                section_video_title: "成就视频",
+                section_video_desc: "系统实施，运营转型和我领导的成就总结的视觉文档。",
+                section_video_note: "此视频显示成就摘要和现场实施过程。",
+                section_projects_badge: "投资组合与计划",
+                section_projects_title: "战略项目",
+                section_projects_desc: "实施物理物流和数字解决方案以提高运营效率。点击项目查看完整详细信息。",
+                contact_title: "准备好优化您的供应链了吗？",
+                contact_desc: "凭借14年的经验，我准备带领贵公司的物流转型，实现最大效率和可衡量的成本降低。",
+                contact_phone_label: "电话 / WhatsApp",
+                form_title: "快速联系",
+                form_name: "姓名 / 公司",
+                form_message: "信息",
+                form_btn: "发送 WhatsApp 信息",
+                footer_text: "供应链与物流专业人士。",
+                modal_challenge: "挑战",
+                modal_solution: "解决方案与实施",
+                modal_results: "影响与结果",
+                modal_btn: "查看现场 / 演示"
+            },
+            ko: {
+                loading: "물류 프로필 로딩 중...",
+                nav_home: "홈",
+                nav_analytics: "분석",
+                nav_demo: "시스템 데모",
+                nav_video: "비디오",
+                nav_projects: "프로젝트",
+                nav_hire: "채용하기",
+                hero_badge: "고위 경영직 준비 완료",
+                hero_title_1: "전략적",
+                hero_title_2: "물류 및 공급망",
+                hero_title_3: "최적화",
+                hero_desc: "탄력적인 공급망을 위해 14년 이상의 물리적 창고 관리 전문 지식과 비용 효율성 전략 및 ERP 기술을 통합합니다.",
+                btn_demo: "시스템 데모 시도",
+                btn_portfolio: "프로젝트 보기",
+                stat_exp: "년 경력",
+                stat_saving: "연간 절감액",
+                stat_team: "팀 리딩",
+                badge_warehouse: "창고 효율성",
+                section_analytics_badge: "성과 지표",
+                section_analytics_title: "성과 분석",
+                section_analytics_desc: "다양한 전략적 프로젝트의 비용 효율성 영향 및 운영 최적화 시각화.",
+                chart_savings_title: "비용 절감 (IDR)",
+                chart_savings_badge: "총 영향: ~7억",
+                chart_savings_note: "*진부화 재고 감소, 추적 시스템 및 경로 최적화 계획의 누적 데이터.",
+                chart_skills_title: "핵심 역량",
+                kpi_1: "운송 비용 절감",
+                kpi_2: "저장 용량 증가",
+                kpi_3: "처리 시간 단축",
+                kpi_4: "재고 손실 감소",
+                section_demo_title: "라이브 데모: MySCM 재고 시스템",
+                section_demo_desc: "창고 관리 문제를 해결하기 위한 디지털 솔루션 개발의 독립적인 이니셔티브. 이 시스템은 기록을 자동화하고 수동 작업 부하를 50% 줄이며 실시간 재고 가시성을 제공합니다.",
+                btn_open_fullscreen: "전체 화면 열기",
+                btn_discuss_system: "이 시스템 논의",
+                section_video_badge: "시각적 증거",
+                section_video_title: "성취 비디오",
+                section_video_desc: "시스템 구현, 운영 변화 및 제가 주도한 성과 요약의 시각적 문서.",
+                section_video_note: "이 비디오는 성취 요약 및 현장 구현 프로세스를 보여줍니다.",
+                section_projects_badge: "포트폴리오 및 이니셔티브",
+                section_projects_title: "전략적 프로젝트",
+                section_projects_desc: "운영 효율성을 위한 물리적 물류 및 디지털 솔루션 구현. 전체 세부 정보를 보려면 프로젝트를 클릭하십시오.",
+                contact_title: "공급망을 최적화할 준비가 되셨습니까?",
+                contact_desc: "14년의 경험을 바탕으로 귀사의 물류 혁신을 최대 효율성과 측정 가능한 비용 절감으로 이끌 준비가 되었습니다.",
+                contact_phone_label: "전화 / WhatsApp",
+                form_title: "빠른 연락",
+                form_name: "이름 / 회사",
+                form_message: "메시지",
+                form_btn: "WhatsApp 메시지 보내기",
+                footer_text: "공급망 및 물류 전문가.",
+                modal_challenge: "도전 과제",
+                modal_solution: "솔루션 및 구현",
+                modal_results: "영향 및 결과",
+                modal_btn: "라이브 / 데모 보기"
+            }
+        };
+
+        const portfolioData = {
+            en: {
+                projects: [
+                    {
+                        title: "MySCM Inventory System",
+                        category: "Digital Transformation",
+                        image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "Web-based application for real-time warehouse stock automation, reducing manual administrative input by up to 50%.",
+                        link: "https://myscm-app.github.io/mainscm/",
+                        details: {
+                            challenge: "Manual stock recording using paper caused data inaccuracy up to 20%, delayed stock reports, and high administrative burden.",
+                            solution: "Developed the MySCM web app independently allowing real-time data input, automated monitoring dashboards, and instant report export features.",
+                            results: [
+                                "Increased stock accuracy to 99.5%.",
+                                "Reduced daily administrative time by 50%.",
+                                "Real-time stock visibility for quick decision making."
+                            ]
+                        }
+                    },
+                    {
+                        title: "EPOD System & Mining Monitoring",
+                        category: "Logistics Tech",
+                        video: "https://drive.google.com/file/d/1u3SgxfIblXFmCb-M-hQ4onn9XLvEO2kl/preview",
+                        image: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=800&auto=format&fit=crop",
+                        description: "Implementation of Electronic Proof of Delivery (EPOD) for real-time monitoring of mining material trading shipments from mine to customer.",
+                        link: "#",
+                        details: {
+                            challenge: "Difficulty in monitoring truck movements from mine to customer, risk of material loss in transit, and delayed physical POD confirmation hindering invoicing.",
+                            solution: "Implemented mobile-based EPOD system for drivers and central monitoring dashboard. Features include GPS tracking, digital photo proof during loading/unloading, and digital signatures.",
+                            results: [
+                                "Real-time tracking of 100% fleet shipment status.",
+                                "Accelerated invoicing process from 7 days to 1 day (Same-day POD).",
+                                "Reduced material quantity disputes with digital photo proof."
+                            ]
+                        }
+                    },
+                    {
+                        title: "Distribution Route Optimization",
+                        category: "Cost Saving (2024)",
+                        image: "https://images.unsplash.com/photo-1566576912902-199df136d62b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "Fleet management and route strategy that successfully cut transportation costs by IDR 200 Million/Year.",
+                        link: "#",
+                        details: {
+                            challenge: "Inflated transportation costs due to inefficient routes, wasteful fuel usage, and low fleet utilization (high idle time).",
+                            solution: "Analyzed historical shipment data to design optimal routes (Route Planning), consolidated shipments to maximize truck capacity (Load Factor), and monitored driver KPIs.",
+                            results: [
+                                "Saved logistics operational costs by IDR 200 Million annually (15%).",
+                                "Improved On-Time Delivery (OTD) to customers up to 98%.",
+                                "Fleet fuel usage efficiency increased by 10%."
+                            ]
+                        }
+                    },
+                    {
+                        title: "HHP Warehouse Automation",
+                        category: "Warehouse Design",
+                        image: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "Warehouse layout redesign and barcode tracking implementation to minimize handling time by up to 25%.",
+                        link: "#",
+                        details: {
+                            challenge: "Chaotic warehouse layout caused long picking times, frequent picking errors, and low warehouse team productivity.",
+                            solution: "Redesigned warehouse layout using ABC analysis (Fast/Slow Moving), implemented barcode scanning system for inbound/outbound, and standardized workflows (SOP).",
+                            results: [
+                                "Reduced material handling time by 25%.",
+                                "Increased warehouse team productivity by 20%.",
+                                "Reduced picking errors to near 0%."
+                            ]
+                        }
+                    }
+                ]
+            },
+            id: {
+                projects: [
+                    {
+                        title: "Sistem Inventory MySCM",
+                        category: "Digital Transformation",
+                        image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "Aplikasi berbasis web untuk otomatisasi stok gudang real-time, mengurangi input manual administrasi hingga 50%.",
+                        link: "https://myscm-app.github.io/mainscm/",
+                        details: {
+                            challenge: "Proses pencatatan stok yang manual menggunakan kertas menyebabkan ketidakakuratan data hingga 20%, keterlambatan laporan stok, dan tingginya beban administrasi.",
+                            solution: "Mengembangkan aplikasi web MySCM secara mandiri yang memungkinkan input data real-time, dashboard monitoring otomatis, dan fitur export laporan instan.",
+                            results: [
+                                "Meningkatkan akurasi stok hingga 99.5%.",
+                                "Mengurangi waktu administrasi harian sebesar 50%.",
+                                "Visibilitas stok real-time untuk pengambilan keputusan cepat."
+                            ]
+                        }
+                    },
+                    {
+                        title: "Sistem EPOD & Monitoring Tambang",
+                        category: "Logistics Tech",
+                        video: "https://drive.google.com/file/d/1u3SgxfIblXFmCb-M-hQ4onn9XLvEO2kl/preview",
+                        image: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=800&auto=format&fit=crop",
+                        description: "Implementasi Electronic Proof of Delivery (EPOD) untuk monitoring kiriman material trading dari tambang ke customer secara real-time.",
+                        link: "#",
+                        details: {
+                            challenge: "Sulitnya memantau pergerakan truk material dari tambang ke customer, risiko kehilangan material di jalan, dan keterlambatan konfirmasi pengiriman (POD) fisik yang menghambat penagihan.",
+                            solution: "Implementasi sistem EPOD berbasis mobile untuk supir dan dashboard monitoring pusat. Fitur mencakup GPS tracking, bukti foto digital saat bongkar muat, dan tanda tangan digital.",
+                            results: [
+                                "Real-time tracking status pengiriman 100% armada.",
+                                "Mempercepat proses invoicing dari 7 hari menjadi 1 hari (Same-day POD).",
+                                "Mengurangi sengketa (dispute) kuantitas material dengan bukti foto digital."
+                            ]
+                        }
+                    },
+                    {
+                        title: "Optimasi Rute Distribusi",
+                        category: "Cost Saving (2024)",
+                        image: "https://images.unsplash.com/photo-1566576912902-199df136d62b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "Strategi manajemen armada dan rute yang berhasil memangkas biaya transportasi sebesar IDR 200 Juta/Tahun.",
+                        link: "#",
+                        details: {
+                            challenge: "Biaya transportasi yang membengkak akibat rute yang tidak efisien, penggunaan BBM yang boros, dan utilisasi armada yang rendah (banyak waktu idle).",
+                            solution: "Analisis data historis pengiriman untuk merancang rute optimal (Route Planning), konsolidasi pengiriman untuk memaksimalkan kapasitas truk (Load Factor), dan monitoring KPI driver.",
+                            results: [
+                                "Penghematan biaya operasional logistik sebesar IDR 200 Juta per tahun (15%).",
+                                "Meningkatkan On-Time Delivery (OTD) ke customer hingga 98%.",
+                                "Efisiensi penggunaan BBM armada sebesar 10%."
+                            ]
+                        }
+                    },
+                    {
+                        title: "Otomatisasi Gudang HHP",
+                        category: "Warehouse Design",
+                        image: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "Redesain layout gudang dan implementasi barcode tracking untuk meminimalisir handling time hingga 25%.",
+                        link: "#",
+                        details: {
+                            challenge: "Layout gudang yang semrawut menyebabkan waktu pengambilan barang (picking time) lama, sering terjadi kesalahan pengambilan barang, dan produktivitas tim gudang rendah.",
+                            solution: "Redesain layout gudang menggunakan analisis ABC (Fast/Slow Moving), implementasi sistem barcode scanning untuk inbound/outbound, dan standarisasi alur kerja (SOP).",
+                            results: [
+                                "Mengurangi handling time material sebesar 25%.",
+                                "Meningkatkan produktivitas tim gudang sebesar 20%.",
+                                "Menurunkan tingkat kesalahan pengambilan (picking error) mendekati 0%."
+                            ]
+                        }
+                    }
+                ]
+            },
+            zh: {
+                projects: [
+                    {
+                        title: "MySCM 库存系统",
+                        category: "数字化转型",
+                        image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "基于Web的实时仓库库存自动化应用，减少高达50%的手工管理输入。",
+                        link: "https://myscm-app.github.io/mainscm/",
+                        details: {
+                            challenge: "使用纸张的手工库存记录导致高达20%的数据不准确，库存报告延迟以及高额的管理负担。",
+                            solution: "独立开发MySCM网络应用，允许实时数据输入，自动监控仪表板和即时报告导出功能。",
+                            results: [
+                                "将库存准确性提高到99.5%。",
+                                "每日管理时间减少50%。",
+                                "实时库存可见性，以便快速决策。"
+                            ]
+                        }
+                    },
+                    {
+                        title: "EPOD 系统与矿山监控",
+                        category: "物流科技",
+                        video: "https://drive.google.com/file/d/1u3SgxfIblXFmCb-M-hQ4onn9XLvEO2kl/preview",
+                        image: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=800&auto=format&fit=crop",
+                        description: "实施电子交付证明 (EPOD)，用于实时监控从矿山到客户的采矿材料交易运输。",
+                        link: "#",
+                        details: {
+                            challenge: "难以监控卡车从矿山到客户的移动，运输途中材料丢失的风险，以及阻碍开票的实物POD确认延迟。",
+                            solution: "为司机和中央监控仪表板实施基于移动的EPOD系统。功能包括GPS跟踪，装卸时的数字照片证明和数字签名。",
+                            results: [
+                                "实时跟踪100%车队运输状态。",
+                                "开票流程从7天加速到1天（当日POD）。",
+                                "通过数字照片证明减少材料数量纠纷。"
+                            ]
+                        }
+                    },
+                    {
+                        title: "配送路线优化",
+                        category: "成本节约 (2024)",
+                        image: "https://images.unsplash.com/photo-1566576912902-199df136d62b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "车队管理和路线策略成功将运输成本每年削减2亿印尼盾。",
+                        link: "#",
+                        details: {
+                            challenge: "由于路线效率低下，燃料使用浪费和车队利用率低（空闲时间长）导致运输成本膨胀。",
+                            solution: "分析历史运输数据以设计最佳路线（路线规划），合并运输以最大化卡车容量（负载系数），并监控司机KPI。",
+                            results: [
+                                "每年节省物流运营成本2亿印尼盾（15%）。",
+                                "将客户的准时交货率（OTD）提高到98%。",
+                                "车队燃料使用效率提高10%。"
+                            ]
+                        }
+                    },
+                    {
+                        title: "HHP 仓库自动化",
+                        category: "仓库设计",
+                        image: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "仓库布局重新设计和条码跟踪实施，将处理时间减少高达25%。",
+                        link: "#",
+                        details: {
+                            challenge: "混乱的仓库布局导致拣货时间长，频繁的拣货错误和仓库团队生产力低。",
+                            solution: "使用ABC分析（快/慢动）重新设计仓库布局，实施入库/出库条码扫描系统，并标准化工作流程（SOP）。",
+                            results: [
+                                "减少材料处理时间25%。",
+                                "将仓库团队生产力提高20%。",
+                                "将拣货错误减少到接近0%。"
+                            ]
+                        }
+                    }
+                ]
+            },
+            ko: {
+                projects: [
+                    {
+                        title: "MySCM 재고 시스템",
+                        category: "디지털 전환",
+                        image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "실시간 창고 재고 자동화를 위한 웹 기반 애플리케이션으로 수동 관리 입력을 최대 50%까지 줄입니다.",
+                        link: "https://myscm-app.github.io/mainscm/",
+                        details: {
+                            challenge: "종이를 사용한 수동 재고 기록은 최대 20%의 데이터 부정확성, 재고 보고서 지연 및 높은 관리 부담을 초래했습니다.",
+                            solution: "실시간 데이터 입력, 자동 모니터링 대시보드 및 즉각적인 보고서 내보내기 기능을 허용하는 MySCM 웹 앱을 독립적으로 개발했습니다.",
+                            results: [
+                                "재고 정확도를 99.5%로 높였습니다.",
+                                "일일 관리 시간을 50% 단축했습니다.",
+                                "빠른 의사 결정을 위한 실시간 재고 가시성."
+                            ]
+                        }
+                    },
+                    {
+                        title: "EPOD 시스템 및 광산 모니터링",
+                        category: "물류 기술",
+                        video: "https://drive.google.com/file/d/1u3SgxfIblXFmCb-M-hQ4onn9XLvEO2kl/preview",
+                        image: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=800&auto=format&fit=crop",
+                        description: "광산에서 고객까지의 광물 거래 선적을 실시간으로 모니터링하기 위한 전자 인도 증명 (EPOD) 구현.",
+                        link: "#",
+                        details: {
+                            challenge: "광산에서 고객까지의 트럭 이동 모니터링의 어려움, 운송 중 자재 손실 위험, 송장 발행을 방해하는 물리적 POD 확인 지연.",
+                            solution: "운전자 및 중앙 모니터링 대시보드를 위한 모바일 기반 EPOD 시스템을 구현했습니다. 기능에는 GPS 추적, 상하차 중 디지털 사진 증명 및 디지털 서명이 포함됩니다.",
+                            results: [
+                                "100% 차량 선적 상태의 실시간 추적.",
+                                "송장 발행 프로세스를 7일에서 1일로 가속화 (당일 POD).",
+                                "디지털 사진 증명으로 자재 수량 분쟁 감소."
+                            ]
+                        }
+                    },
+                    {
+                        title: "배송 경로 최적화",
+                        category: "비용 절감 (2024)",
+                        image: "https://images.unsplash.com/photo-1566576912902-199df136d62b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "운송 비용을 연간 2억 루피아 절감한 차량 관리 및 경로 전략.",
+                        link: "#",
+                        details: {
+                            challenge: "비효율적인 경로, 낭비적인 연료 사용 및 낮은 차량 활용도(높은 유휴 시간)로 인한 운송 비용 팽창.",
+                            solution: "과거 선적 데이터를 분석하여 최적 경로 설계(경로 계획), 트럭 용량 극대화를 위한 선적 통합(적재율) 및 운전자 KPI 모니터링.",
+                            results: [
+                                "물류 운영 비용을 연간 2억 루피아(15%) 절감했습니다.",
+                                "고객에 대한 정시 배송(OTD)을 최대 98%까지 개선했습니다.",
+                                "차량 연료 사용 효율성이 10% 증가했습니다."
+                            ]
+                        }
+                    },
+                    {
+                        title: "HHP 창고 자동화",
+                        category: "창고 설계",
+                        image: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        description: "창고 레이아웃 재설계 및 바코드 추적 구현으로 처리 시간을 최대 25% 단축.",
+                        link: "#",
+                        details: {
+                            challenge: "혼란스러운 창고 레이아웃은 긴 피킹 시간, 빈번한 피킹 오류 및 낮은 창고 팀 생산성을 초래했습니다.",
+                            solution: "ABC 분석(빠른/느린 이동)을 사용하여 창고 레이아웃을 재설계하고, 입고/출고를 위한 바코드 스캐닝 시스템을 구현하고, 워크플로(SOP)를 표준화했습니다.",
+                            results: [
+                                "자재 처리 시간을 25% 단축했습니다.",
+                                "창고 팀 생산성을 20% 높였습니다.",
+                                "피킹 오류를 거의 0%로 줄였습니다."
+                            ]
+                        }
+                    }
+                ]
+            }
+        };
+
         const cvData = {
             name: "Abi Habudin",
             role: "Supply Chain & Logistics Expert",
             image: "https://media.licdn.com/dms/image/v2/C5603AQGdBKR7gsA_MQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1621503632013?e=1768435200&v=beta&t=x1hO0IY3_fPr8nApebY3YNIipBxMT4c808of7h9yKlM",
             phone: "+62 857 1705 0604",
-            projects: [
-                {
-                    title: "Sistem Inventory MySCM",
-                    category: "Digital Transformation",
-                    image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    description: "Aplikasi berbasis web untuk otomatisasi stok gudang real-time, mengurangi input manual administrasi hingga 50%.",
-                    link: "https://myscm-app.github.io/mainscm/",
-                    // Detail Data untuk Modal
-                    details: {
-                        challenge: "Proses pencatatan stok yang manual menggunakan kertas menyebabkan ketidakakuratan data hingga 20%, keterlambatan laporan stok, dan tingginya beban administrasi.",
-                        solution: "Mengembangkan aplikasi web MySCM secara mandiri yang memungkinkan input data real-time, dashboard monitoring otomatis, dan fitur export laporan instan.",
-                        results: [
-                            "Meningkatkan akurasi stok hingga 99.5%.",
-                            "Mengurangi waktu administrasi harian sebesar 50%.",
-                            "Visibilitas stok real-time untuk pengambilan keputusan cepat."
-                        ]
-                    }
-                },
-                {
-                    title: "Sistem EPOD & Monitoring Tambang",
-                    category: "Logistics Tech",
-                    // Menggunakan video dari Google Drive pada bagian "video"
-                    video: "https://drive.google.com/file/d/1u3SgxfIblXFmCb-M-hQ4onn9XLvEO2kl/preview",
-                    image: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=800&auto=format&fit=crop",
-                    description: "Implementasi Electronic Proof of Delivery (EPOD) untuk monitoring kiriman material trading dari tambang ke customer secara real-time.",
-                    link: "#", // Akan memicu modal
-                    details: {
-                        challenge: "Sulitnya memantau pergerakan truk material dari tambang ke customer, risiko kehilangan material di jalan, dan keterlambatan konfirmasi pengiriman (POD) fisik yang menghambat penagihan.",
-                        solution: "Implementasi sistem EPOD berbasis mobile untuk supir dan dashboard monitoring pusat. Fitur mencakup GPS tracking, bukti foto digital saat bongkar muat, dan tanda tangan digital.",
-                        results: [
-                            "Real-time tracking status pengiriman 100% armada.",
-                            "Mempercepat proses invoicing dari 7 hari menjadi 1 hari (Same-day POD).",
-                            "Mengurangi sengketa (dispute) kuantitas material dengan bukti foto digital."
-                        ]
-                    }
-                },
-                {
-                    title: "Optimasi Rute Distribusi",
-                    category: "Cost Saving (2024)",
-                    image: "https://images.unsplash.com/photo-1566576912902-199df136d62b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    description: "Strategi manajemen armada dan rute yang berhasil memangkas biaya transportasi sebesar IDR 200 Juta/Tahun.",
-                    link: "#",
-                    details: {
-                        challenge: "Biaya transportasi yang membengkak akibat rute yang tidak efisien, penggunaan BBM yang boros, dan utilisasi armada yang rendah (banyak waktu idle).",
-                        solution: "Analisis data historis pengiriman untuk merancang rute optimal (Route Planning), konsolidasi pengiriman untuk memaksimalkan kapasitas truk (Load Factor), dan monitoring KPI driver.",
-                        results: [
-                            "Penghematan biaya operasional logistik sebesar IDR 200 Juta per tahun (15%).",
-                            "Meningkatkan On-Time Delivery (OTD) ke customer hingga 98%.",
-                            "Efisiensi penggunaan BBM armada sebesar 10%."
-                        ]
-                    }
-                },
-                {
-                    title: "Otomatisasi Gudang HHP",
-                    category: "Warehouse Design",
-                    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    description: "Redesain layout gudang dan implementasi barcode tracking untuk meminimalisir handling time hingga 25%.",
-                    link: "#",
-                    details: {
-                        challenge: "Layout gudang yang semrawut menyebabkan waktu pengambilan barang (picking time) lama, sering terjadi kesalahan pengambilan barang, dan produktivitas tim gudang rendah.",
-                        solution: "Redesain layout gudang menggunakan analisis ABC (Fast/Slow Moving), implementasi sistem barcode scanning untuk inbound/outbound, dan standarisasi alur kerja (SOP).",
-                        results: [
-                            "Mengurangi handling time material sebesar 25%.",
-                            "Meningkatkan produktivitas tim gudang sebesar 20%.",
-                            "Menurunkan tingkat kesalahan pengambilan (picking error) mendekati 0%."
-                        ]
-                    }
-                }
-            ]
         };
+
+        let currentLang = 'en';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+            
+            // Translate static elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Re-render projects
+            renderProjects(lang);
+        }
 
         // Modal Functions
         function openModal(index) {
-            const project = cvData.projects[index];
+            const project = portfolioData[currentLang].projects[index];
             if (!project.details) return; 
 
             // Elements
@@ -690,7 +1158,8 @@
             const linkBtn = document.getElementById('modal-link');
             if (project.link && project.link !== "#") {
                 linkBtn.href = project.link;
-                linkBtn.innerHTML = '<i class="fas fa-external-link-alt mr-2"></i> Lihat Live / Demo';
+                // Update button text based on current language
+                linkBtn.innerHTML = `<i class="fas fa-external-link-alt mr-2"></i> ${translations[currentLang].modal_btn}`;
                 linkBtn.classList.remove('bg-slate-400', 'cursor-not-allowed');
                 linkBtn.classList.add('bg-brand-primary', 'hover:bg-brand-dark');
             } else {
@@ -744,7 +1213,7 @@
                 data: {
                     labels: ['Obsolete (2017)', 'Tracking (2018)', 'Storage (2022)', 'Transport (2024)'],
                     datasets: [{
-                        label: 'Penghematan (Juta IDR)',
+                        label: 'Saving (Million IDR)',
                         data: [300, 100, 100, 200],
                         backgroundColor: [
                             'rgba(2, 132, 199, 0.8)', // Sky 600
@@ -784,7 +1253,7 @@
                 data: {
                     labels: ['SAP ERP', 'WMS', 'Leadership', 'Cost Saving', 'Data Analysis', 'ISO 9001'],
                     datasets: [{
-                        label: 'Keahlian',
+                        label: 'Skill Level',
                         data: [90, 95, 85, 95, 80, 85],
                         backgroundColor: 'rgba(2, 132, 199, 0.25)',
                         borderColor: '#0284c7',
@@ -823,7 +1292,15 @@
             const loader = document.getElementById('loader');
             const app = document.getElementById('app');
             
-            renderData(cvData);
+            // Set initial data
+            safeSetText('nav-name', cvData.name);
+            safeSetText('contact-phone', cvData.phone || "");
+            document.getElementById('year').textContent = new Date().getFullYear();
+            const profileImg = document.getElementById('profile-img');
+            if(profileImg) profileImg.src = cvData.image;
+
+            // Initial Language Load (English)
+            changeLanguage('en');
             initCharts(); 
 
             setTimeout(() => {
@@ -836,25 +1313,17 @@
             }, 800);
         }
 
-        function renderData(data) {
-            safeSetText('nav-name', data.name);
-            safeSetText('contact-phone', data.phone || "");
-            document.getElementById('year').textContent = new Date().getFullYear();
-            
-            // Explicitly set Image URL again to be sure
-            const profileImg = document.getElementById('profile-img');
-            if(profileImg) profileImg.src = data.image;
-
-            // Projects
+        function renderProjects(lang) {
             const projectsGrid = document.getElementById('projects-grid');
             if (projectsGrid) {
                 projectsGrid.innerHTML = '';
-                if (data.projects && Array.isArray(data.projects)) {
+                const data = portfolioData[lang];
+                
+                if (data && data.projects && Array.isArray(data.projects)) {
                     data.projects.forEach((project, index) => {
                         const card = document.createElement('div');
                         card.className = 'glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full bg-white cursor-pointer';
                         
-                        // Menambahkan event listener click untuk membuka modal
                         card.onclick = () => openModal(index);
 
                         card.innerHTML = `
@@ -862,7 +1331,7 @@
                                 <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-0 bg-brand-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                     <span class="px-6 py-2 bg-white text-brand-primary font-bold rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg">
-                                        Lihat Detail
+                                        View Detail
                                     </span>
                                 </div>
                             </div>
